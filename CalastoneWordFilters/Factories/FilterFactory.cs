@@ -13,7 +13,7 @@ namespace CalastoneWordFilterer.Factories
     {
         public List<Type> GetFilterTypes()
         {
-            return Assembly.GetExecutingAssembly().GetTypes().AsEnumerable().Where(t => t.IsClass && t.Namespace == "CalastoneWordFilterer.Filters").ToList();
+            return Assembly.GetExecutingAssembly().GetTypes().AsEnumerable().Where(t => t.IsClass && t.Namespace == "CalastoneWordFilterer.Filters" && t.GetInterfaces().Contains(typeof(IFilter))).ToList();
         }
 
         public ParameterInfo[] GetParametersForFilter(Type filter)
