@@ -1,0 +1,11 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=1890853d_002Df0fd_002D42b0_002Dbf60_002D7f670558174c/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="PrintFilteredWordsFromStream_MethodAppliesFiltersOntoStreamAndReturnsResult" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;MSTest::6130C9FF-6974-4A33-84BC-31E7552619D5::.NETCoreApp,Version=v3.1::WordFiltererTestProject.CoreTester.PrintFilteredWordsFromStream_MethodAppliesFiltersOntoStreamAndReturnsResult&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=3ee9e216_002D1782_002D4dbc_002D867e_002D2f9aeebc2bb8/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="CoreTester" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;MSTest::6130C9FF-6974-4A33-84BC-31E7552619D5::.NETCoreApp,Version=v3.1::WordFiltererTestProject.CoreTester&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
