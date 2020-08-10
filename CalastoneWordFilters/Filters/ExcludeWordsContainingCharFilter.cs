@@ -4,11 +4,11 @@ using System.Text;
 
 namespace CalastoneWordFilterer.Filters
 {
-    public class ExcludeWordsContainingChar :IFilter
+    public class ExcludeWordsContainingCharFilter :IFilter
     {
         private char _charToExclude;
 
-        public ExcludeWordsContainingChar(char charToExclude = 't')
+        public ExcludeWordsContainingCharFilter(char charToExclude = 't')
         {
             this._charToExclude = charToExclude;
         }

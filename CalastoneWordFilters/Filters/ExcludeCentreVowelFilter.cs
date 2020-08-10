@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CalastoneWordFilterer.Filters
 {
-    class ExcludeCentreVowelFilter : IFilter
+    public class ExcludeCentreVowelFilter : IFilter
     {
         // Method which returns bool to indicate whether this supplied word should be excluded.
         public bool ExcludeWord(string word)
