@@ -11,7 +11,7 @@ ExcludeCentreVowelFilter excludes words which have a vowel as their middle chara
 
 ExcludeShortWordsFilter excludes short words (defaults to less than 3 characters as per spec, parameter can be overwritten by user when running the application)
 
-ExcludeWordsContainingChar excludes words containing a specific character (defaults to 't', can be overwritten by user when running the application).
+ExcludeWordsContainingCharFilter excludes words containing a specific character (defaults to 't', can be overwritten by user when running the application).
 
 To run the application, simply run the executable and follow the instructions provided in command line. There are some extra steps I've included for extendability.
 
@@ -23,7 +23,7 @@ When prompted, type filename (including path if file is not already in the same 
 
 When prompted, select which filters to apply. Details below provide some more on this, but hopefully the names are fairly self-explanatory. Enter "0 1 2" (without quotes) to run all filters, or any subset of that.
 
-If a parameterised Filter was chosen to include (ExcludeShortWordsFilter or ExcludeWordsContainingChar), then user will be prompted to enter a value if they wish. For ExcludeShortWordsFilter, this will determine the minimum length of the word that can be returned, for ExcludeWordsContainingChar, this will define a character to blacklist. User can just press enter here to take the defaults of 3 and t respectively
+If a parameterised Filter was chosen to include (ExcludeShortWordsFilter or ExcludeWordsContainingCharFilter), then user will be prompted to enter a value if they wish. For ExcludeShortWordsFilter, this will determine the minimum length of the word that can be returned, for ExcludeWordsContainingCharFilter, this will define a character to blacklist. User can just press enter here to take the defaults of 3 and t respectively
 
 Once these have been supplied, the filters selected with the parameters chosen (if applicable) will be applied to the file and resulting words which are not removed by the filters will be returned.
 
@@ -42,8 +42,6 @@ File reading is carried out with a StreamReader, with the expectation that this 
 # Closing thoughts
 
 Improvements that could be made with more time;
-
-Unit tests have been written for the core functionality of the application, those these could be extended with additional tests and wider coverage (EG: Individual Filter's exclusion logic could be tested).
 
 Parameterization of Filters works based off of ParameterInfo classes, which are not fully mockable. Some rework to this bit to improve testability around here would be of benefit.
 
