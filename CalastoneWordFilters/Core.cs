@@ -16,8 +16,14 @@ namespace CalastoneWordFilterer
     public class Core
     {
         // injected services for use in unit testing and extension
+
+        // used to read .txt file content
         private IFileReader _fileReader;
+
+        // used to generate instances of Filters to apply to the contents of file read
         private IFilterFactory _filterFactory;
+
+        // used to control messaging to and from the user
         private IConsole _console;
 
         public Core(IFilterFactory filterFactory, IFileReader fileReader, IConsole console)
@@ -46,7 +52,7 @@ namespace CalastoneWordFilterer
 
         public List<IFilter> GetFiltersToApply()
         {
-            // Read in what filters the user wants to apply - For extendability, assuming that list of filters can grow, no reason to assume user would always want to apply all filters. 
+            // Read in what filters the user wants to apply - For extendability, assuming that list of filters can grow, no reason to assume user would always want to apply all filters.
             this._console.WriteLine("Choose filters to apply from the following;");
 
             List<Type> filters = this._filterFactory.GetFilterTypes();
@@ -123,7 +129,6 @@ namespace CalastoneWordFilterer
                 {
                     // question asks for all words, non-distinct.
                     // If the word has already been added, then the filters must have already been succesfully applied for this word, so no need to run them again.
-                    // TO TEST: Is this actually faster? Verify with laaaarge file
                     if (filteredWords.Contains(word))
                     {
                         filteredWords.Add(word);
