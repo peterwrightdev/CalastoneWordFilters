@@ -159,6 +159,7 @@ namespace CalastoneWordFilterer
             this._console.WriteLine(string.Empty);
 
             this._console.WriteLine(string.Join(" ", filteredWords));
+            this._console.ReadLine();
         }
     }
 }
