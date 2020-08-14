@@ -13,7 +13,7 @@ using System.Text.RegularExpressions;
 
 namespace CalastoneWordFilterer
 {
-    public class Core
+    public class Client
     {
         // injected services for use in unit testing and extension
 
@@ -26,7 +26,7 @@ namespace CalastoneWordFilterer
         // used to control messaging to and from the user
         private IConsole _console;
 
-        public Core(IFilterFactory filterFactory, IFileReader fileReader, IConsole console)
+        public Client(IFilterFactory filterFactory, IFileReader fileReader, IConsole console)
         {
             this._fileReader = fileReader;
             this._filterFactory = filterFactory;

@@ -15,22 +15,22 @@ namespace CalastoneWordFilterer
     {
         static void Main(string[] args)
         {
-            Core coreApp = new Core(new FilterFactory(), new CustomFileReader(), new StandardConsole());
+            Client client = new Client(new FilterFactory(), new CustomFileReader(), new StandardConsole());
 
             StreamReader streamReader = null;
             List<IFilter> filtersToApply = null;
             try
             {
-                streamReader = coreApp.RequestFileFromUser();
+                streamReader = client.RequestFileFromUser();
 
-                filtersToApply = coreApp.GetFiltersToApply();
+                filtersToApply = client.GetFiltersToApply();
             }
             catch
             {
                 Main(args);
             }
 
-            coreApp.PrintFilteredWordsFromStream(streamReader, filtersToApply);
+            client.PrintFilteredWordsFromStream(streamReader, filtersToApply);
         }
     }
 }

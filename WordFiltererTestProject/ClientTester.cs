@@ -14,7 +14,7 @@ using System.Reflection;
 namespace WordFiltererTestProject
 {
     [TestClass]
-    public class CoreTester
+    public class ClientTester
     {
         [TestMethod]
         public void RequestFileFromUser_WhenFileIsFound_ThenReturnedStreamReaderPointsToTheFile()
@@ -30,7 +30,7 @@ namespace WordFiltererTestProject
             moqConsole.SetupSequence(m => m.ReadLine()).Returns("mockfilename.txt");
 
             moqFileReader.Setup(mfr => mfr.GetStreamReader(It.Is<string>(s => s == "mockfilename.txt"))).Returns(() => new StreamReader(fakeMemoryStream));
-            Core core = new Core(moqFilterFactory.Object, moqFileReader.Object, moqConsole.Object);
+            Client core = new Client(moqFilterFactory.Object, moqFileReader.Object, moqConsole.Object);
 
             // Act
             StreamReader outputStreamReader = core.RequestFileFromUser();
@@ -55,7 +55,7 @@ namespace WordFiltererTestProject
             moqConsole.SetupSequence(m => m.ReadLine()).Returns("mockfilename.txt");
 
             moqFileReader.Setup(mfr => mfr.GetStreamReader(It.Is<string>(s => s == "mockfilename.txt"))).Throws(new Exception());
-            Core core = new Core(moqFilterFactory.Object, moqFileReader.Object, moqConsole.Object);
+            Client core = new Client(moqFilterFactory.Object, moqFileReader.Object, moqConsole.Object);
 
 
             Exception expectedException = null;
@@ -92,7 +92,7 @@ namespace WordFiltererTestProject
             Mock<IConsole> moqConsole = new Mock<IConsole>();
             moqConsole.SetupSequence(m => m.ReadLine()).Returns("0").Returns(string.Empty);
 
-            Core core = new Core(moqFilterFactory.Object, moqFileReader.Object, moqConsole.Object);
+            Client core = new Client(moqFilterFactory.Object, moqFileReader.Object, moqConsole.Object);
 
             // Act
             List<IFilter> outputFiltersToApply = core.GetFiltersToApply();
@@ -123,7 +123,7 @@ namespace WordFiltererTestProject
             Mock<IConsole> moqConsole = new Mock<IConsole>();
             moqConsole.SetupSequence(m => m.ReadLine()).Returns("invalidselection").Returns(string.Empty);
 
-            Core core = new Core(moqFilterFactory.Object, moqFileReader.Object, moqConsole.Object);
+            Client core = new Client(moqFilterFactory.Object, moqFileReader.Object, moqConsole.Object);
 
             // Act
             Exception exception = null;
@@ -161,7 +161,7 @@ namespace WordFiltererTestProject
             Mock<IConsole> moqConsole = new Mock<IConsole>();
             moqConsole.SetupSequence(m => m.ReadLine()).Returns(string.Empty).Returns(string.Empty);
 
-            Core core = new Core(moqFilterFactory.Object, moqFileReader.Object, moqConsole.Object);
+            Client core = new Client(moqFilterFactory.Object, moqFileReader.Object, moqConsole.Object);
 
             // Act
             List<IFilter> outputFiltersToApply = core.GetFiltersToApply();
@@ -200,7 +200,7 @@ namespace WordFiltererTestProject
             Mock<IConsole> moqConsole = new Mock<IConsole>();
             moqConsole.SetupSequence(m => m.ReadLine()).Returns("0").Returns(string.Empty);
 
-            Core core = new Core(moqFilterFactory.Object, moqFileReader.Object, moqConsole.Object);
+            Client core = new Client(moqFilterFactory.Object, moqFileReader.Object, moqConsole.Object);
 
             // Act
             List<IFilter> outputFiltersToApply = core.GetFiltersToApply();
@@ -243,7 +243,7 @@ namespace WordFiltererTestProject
             Mock<IConsole> moqConsole = new Mock<IConsole>();
             moqConsole.SetupSequence(m => m.ReadLine()).Returns("0").Returns("6");
 
-            Core core = new Core(moqFilterFactory.Object, moqFileReader.Object, moqConsole.Object);
+            Client core = new Client(moqFilterFactory.Object, moqFileReader.Object, moqConsole.Object);
 
             // Act
             List<IFilter> outputFiltersToApply = core.GetFiltersToApply();
@@ -277,7 +277,7 @@ namespace WordFiltererTestProject
             byte[] fakeFileBytes = Encoding.UTF8.GetBytes(moqFileContext);
             MemoryStream fakeMemoryStream = new MemoryStream(fakeFileBytes);
 
-            Core core = new Core(moqFilterFactory.Object, moqFileReader.Object, moqConsole.Object);
+            Client core = new Client(moqFilterFactory.Object, moqFileReader.Object, moqConsole.Object);
             core.PrintFilteredWordsFromStream(new StreamReader(fakeMemoryStream), filtersToApply);
 
             moqConsole.Verify(c => c.WriteLine(It.Is<string>(s => s == "Result is as follows;")), Times.Once);
