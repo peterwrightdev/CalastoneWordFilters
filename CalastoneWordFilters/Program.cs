@@ -28,6 +28,7 @@ namespace CalastoneWordFilterer
             catch
             {
                 Main(args);
+                Environment.Exit(0);
             }
 
             client.PrintFilteredWordsFromStream(streamReader, filtersToApply);
